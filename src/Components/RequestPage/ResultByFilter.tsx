@@ -1,43 +1,16 @@
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import { useEffect, useState } from 'react';
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql,
-} from '@apollo/client';
+import { useQuery, gql } from '@apollo/client';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { Container } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import Icon from '@mui/material/Icon';
 import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-  useHistory,
-  useParams,
-  useLocation,
-} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 type ResultByFilter = {
   query: any;
-  setCurrentLink: Function;
 };
-const ResultByFilter = ({ query, setCurrentLink }: ResultByFilter) => {
+const ResultByFilter = ({ query }: ResultByFilter) => {
   const historyRoute = useHistory();
 
   const [resultsByFilter, setResultsByFilter] = useState([]);
@@ -84,24 +57,16 @@ const ResultByFilter = ({ query, setCurrentLink }: ResultByFilter) => {
   const { data, loading, error } = useQuery(REQUEST_INPUT2S, {
     variables: {
       page: currentPage,
-      status: query.status === 'nevermind' ? '' : query.status,
-      species: query.species === 'nevermind' ? '' : query.species,
-      gender: query.gender === 'nevermind' ? '' : query.gender,
-      type: query.type === 'nevermind' ? '' : query.type,
+      status: query.status === 'none' ? '' : query.status,
+      species: query.species === 'none' ? '' : query.species,
+      gender: query.gender === 'none' ? '' : query.gender,
+      type: query.type === 'none' ? '' : query.type,
     },
   });
 
   let arrayResults: any = [];
-  // useEffect(() => {
-  //   console.log('pathName', location.pathname);
-  // }, [location]);
 
   useEffect(() => {
-    // const url = `/search?status=${query.status}&species=${
-    //   query.species
-    // }&gender=${query.gender}&type=${query.type.replace(/\)|\(/g, '')}/`;
-    // setCurrentLink(url);
-    // historyRoute.push(url);
     if (error) {
       setResultsByFilter([]);
       setInfoPages(0);
@@ -157,11 +122,6 @@ const ResultByFilter = ({ query, setCurrentLink }: ResultByFilter) => {
           alignItems: 'center',
         }}
       >
-        {/* rows per page
-        <Select defaultValue={2} sx={{ width: 60, height: 40 }}>
-          <MenuItem value={1}>1</MenuItem>
-          <MenuItem value={2}>2</MenuItem>
-        </Select> */}
         {currentPage} of {infoPages}
         <Pagination
           onChange={onChangePagination}
@@ -170,7 +130,6 @@ const ResultByFilter = ({ query, setCurrentLink }: ResultByFilter) => {
           showFirstButton
           showLastButton
         />
-        {/* <Button onClick={() => console.log(location.pathname)}>Locat</Button> */}
       </Container>
     </div>
   );

@@ -1,41 +1,27 @@
 import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql,
-} from '@apollo/client';
-import {
   BrowserRouter as Router,
-  Switch,
   Route,
-  Link,
-  useLocation,
   Redirect,
   useHistory,
 } from 'react-router-dom';
 
 import RequestPage from './RequestPage/RequestPage';
-import { useState } from 'react';
-//    '/rick-and-morty-search-person/search?status=nevermind?species=nevermind?gender=nevermind?type=nevermind'
-//<Redirect to={{ pathname: currentLink, search: '?name=akfga' }} />
+import { useEffect, useState } from 'react';
+
 const RickAndMortySearchPersonApp = () => {
+  let history = useHistory();
   const [currentLink, setCurrentLink] = useState(
     '/rick-and-morty-search-person/'
   );
 
   return (
     <Router>
-      <Route exact path={currentLink}>
-        <RequestPage setCurrentLink={setCurrentLink} />
+      <Route path={currentLink}>
+        <RequestPage />
       </Route>
-      <Redirect
-        to={{
-          pathname: currentLink,
-          search:
-            '?status=never1mind&species=neve2rmind&gender=nev3ermind&type=ne4vermind',
-        }}
-      />
+      <Route exact path="/">
+        <Redirect to="/rick-and-morty-search-person/?status=none&species=none&gender=none&type=none" />
+      </Route>
     </Router>
   );
 };
