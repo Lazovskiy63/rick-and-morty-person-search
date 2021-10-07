@@ -2,12 +2,12 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { TYPE_INPUT } from '../TYPES/INPUT_FORM';
+import { STANDART_SELECT_VALUE } from '../types/types';
 interface SelectFiltersArgs {
   nameSelect: string;
-  value: any;
+  value: string | null;
   onChange: Function;
-  options: any;
+  options: string[];
 }
 const SelectFilters = ({
   nameSelect,
@@ -16,7 +16,7 @@ const SelectFilters = ({
   options,
 }: SelectFiltersArgs) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+    <FormControl variant="standard" sx={{ m: 1, margin: '5px' }}>
       <InputLabel id="demo-simple-select-standard-label">
         {nameSelect}
       </InputLabel>
@@ -26,12 +26,13 @@ const SelectFilters = ({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         label="Status"
-        sx={{ width: '110px', overflow: 'hidden' }}
+        sx={{ minWidth: '100px', maxWidth: '100px', overflow: 'hidden' }}
+        defaultValue="nevermind"
       >
-        <MenuItem key={'nevermind'} value={'none'}>
+        <MenuItem key={'nevermind'} value={STANDART_SELECT_VALUE}>
           {'nevermind'}
         </MenuItem>
-        {options.map((option: any) => {
+        {options.map((option: string) => {
           return (
             <MenuItem key={option} value={option.toLowerCase()}>
               {option}
