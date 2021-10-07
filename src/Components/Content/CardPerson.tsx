@@ -70,6 +70,8 @@ const CardPerson = ({ person }: CardPersonArgs) => {
       <Typography
         sx={{
           textAlign: 'center',
+          height: '25px',
+          overflow: 'hidden',
         }}
       >
         {person.name}
@@ -97,7 +99,7 @@ const CardPerson = ({ person }: CardPersonArgs) => {
           <CharParams param="Status" value={person.status} />
           <CharParams param="Species" value={person.species} />
           <CharParams param="Gender" value={person.gender} />
-          <CharParams param="Type" value={person.type} />
+          <CharParams param="Type" value={person.type || 'none'} />
         </Typography>
 
         <label

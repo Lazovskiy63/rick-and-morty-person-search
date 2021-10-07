@@ -99,7 +99,7 @@ const ResultByFilter = ({
         flex-wrap: wrap;
         overflow: auto;
         justify-content: space-around;
-        height: 85vh;
+        height: 94vh;
 
         ::-webkit-scrollbar {
           display: none;

@@ -1,3 +1,7 @@
+/** @jsxRuntime classic /
+/* @jsx jsx */
+import { jsx, css } from '@emotion/react';
+
 import { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { Button } from '@mui/material';
@@ -17,6 +21,9 @@ interface HeaderArgs {
   setSpecies: any;
   setGender: any;
   setType: any;
+  infoPages: any;
+  setCurrentPage: Function;
+  currentPage: any;
 }
 const Header = ({
   status,
@@ -27,6 +34,9 @@ const Header = ({
   setSpecies,
   setGender,
   setType,
+  currentPage,
+  setCurrentPage,
+  infoPages,
 }: HeaderArgs) => {
   let location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -69,6 +79,9 @@ const Header = ({
     setType(params.get('type'));
   }, []);
   useEffect(() => {
+    if (!infoPages) {
+      setCurrentPage(1);
+    }
     history.push(
       location.pathname +
         `?status=${status}&species=${species}&gender=${gender}&type=${type}`
@@ -104,8 +117,36 @@ const Header = ({
     }
   }
   return (
-    <div>
-      <Box display="flex" height="10vh" justifyContent="center">
+    <div
+      style={{
+        width: '100vw',
+        height: '7vh',
+        position: 'absolute',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <div
+        // sx={{
+        //   backgroundColor: 'white',
+        //   width: '99vw',
+        //   height: '6vh',
+        //   borderRadius: '20%',
+        // }}
+        // display="flex"
+        // justifyContent="center"
+        // boxShadow="rgb(0 0 0 / 30%) 0px 6px 6px;"
+        css={css`
+          justify-content: space-around;
+          box-shadow: rgb(0 0 0 / 49%) 1px 5px 12px;
+          background-color: white;
+          width: 68vw;
+          height: 5vh;
+          border-radius: 4px;
+          display: flex;
+        `}
+      >
         <SelectFilters
           value={status}
           onChange={setStatus}
@@ -132,6 +173,7 @@ const Header = ({
         />
 
         <Button
+          sx={{ height: '66px' }}
           onClick={() => {
             history.push(START_URL);
             setStatus(STANDART_SELECT_VALUE);
@@ -142,7 +184,7 @@ const Header = ({
         >
           clear filters
         </Button>
-      </Box>
+      </div>
     </div>
   );
 };

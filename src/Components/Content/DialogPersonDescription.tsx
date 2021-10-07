@@ -40,11 +40,12 @@ const DialogPersonDescription = ({
       <div
         css={css`
           text-align: center;
-          margin-top: 2px;
+          margin-top: 5px;
         `}
       >
         {person.name}
       </div>
+
       <div
         css={css`
           padding: 15px;
@@ -59,7 +60,7 @@ const DialogPersonDescription = ({
       >
         <div
           css={css`
-            width: 300px;
+            width: px;
             height: 470px;
             grid-area: image;
           `}
@@ -74,7 +75,7 @@ const DialogPersonDescription = ({
           <CharParams param="Status" value={person.status} />
           <CharParams param="Species" value={person.species} />
           <CharParams param="Gender" value={person.gender} />
-          <CharParams param="Type" value={person.type} />
+          <CharParams param="Type" value={person.type || 'none'} />
         </div>
         <div
           css={css`

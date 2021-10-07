@@ -27,10 +27,10 @@ const SelectFilters = ({
         onChange={(e) => onChange(e.target.value)}
         label="Status"
         sx={{ minWidth: '100px', maxWidth: '100px', overflow: 'hidden' }}
-        defaultValue="nevermind"
+        defaultValue="none"
       >
-        <MenuItem key={'nevermind'} value={STANDART_SELECT_VALUE}>
-          {'nevermind'}
+        <MenuItem key={'none'} value={STANDART_SELECT_VALUE}>
+          {'None'}
         </MenuItem>
         {options.map((option: string) => {
           return (

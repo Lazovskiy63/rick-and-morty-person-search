@@ -15,6 +15,8 @@ const RickAndMortySearchPersonApp = () => {
   const [infoPages, setInfoPages] = useState(1);
   useEffect(() => {
     document.body.style.position = 'fixed'; //?
+    document.body.style.backgroundImage =
+      'url(https://wallpaperaccess.com/full/3581516.jpg)';
   }, []);
   return (
     <Router>
@@ -28,6 +30,9 @@ const RickAndMortySearchPersonApp = () => {
           setSpecies={setSpecies}
           setGender={setGender}
           setType={setType}
+          infoPages={infoPages}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
         />
         <Content
           currentPage={currentPage}
