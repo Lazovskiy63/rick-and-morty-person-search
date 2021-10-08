@@ -118,73 +118,57 @@ const Header = ({
   }
   return (
     <div
-      style={{
-        width: '100vw',
-        height: '7vh',
-        position: 'absolute',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <div
-        // sx={{
-        //   backgroundColor: 'white',
-        //   width: '99vw',
-        //   height: '6vh',
-        //   borderRadius: '20%',
-        // }}
-        // display="flex"
-        // justifyContent="center"
-        // boxShadow="rgb(0 0 0 / 30%) 0px 6px 6px;"
-        css={css`
-          justify-content: space-around;
-          box-shadow: rgb(0 0 0 / 49%) 1px 5px 12px;
-          background-color: white;
-          width: 68vw;
-          height: 5vh;
-          border-radius: 4px;
-          display: flex;
-        `}
-      >
-        <SelectFilters
-          value={status}
-          onChange={setStatus}
-          nameSelect={'Status'}
-          options={selectInputs.statusArray}
-        />
-        <SelectFilters
-          value={species}
-          onChange={setSpecies}
-          nameSelect={'Species'}
-          options={selectInputs.speciesArray}
-        />
-        <SelectFilters
-          value={gender}
-          onChange={setGender}
-          nameSelect={'Gender'}
-          options={selectInputs.genderArray}
-        />
-        <SelectFilters
-          value={type}
-          onChange={setType}
-          nameSelect={'Type'}
-          options={selectInputs.typeArray}
-        />
+      css={css`
+        margin: 7px 20vw 8px 20vw;
+        position: absolute;
 
-        <Button
-          sx={{ height: '66px' }}
-          onClick={() => {
-            history.push(START_URL);
-            setStatus(STANDART_SELECT_VALUE);
-            setSpecies(STANDART_SELECT_VALUE);
-            setGender(STANDART_SELECT_VALUE);
-            setType(STANDART_SELECT_VALUE);
-          }}
-        >
-          clear filters
-        </Button>
-      </div>
+        justify-content: space-around;
+        box-shadow: rgb(0 0 0 / 49%) 1px 5px 12px;
+        background-color: white;
+        width: 55vw;
+        height: 6vh;
+        border-radius: 4px;
+        display: flex;
+        margin-top: 10px;
+      `}
+    >
+      <SelectFilters
+        value={status}
+        onChange={setStatus}
+        nameSelect={'Status'}
+        options={selectInputs.statusArray}
+      />
+      <SelectFilters
+        value={species}
+        onChange={setSpecies}
+        nameSelect={'Species'}
+        options={selectInputs.speciesArray}
+      />
+      <SelectFilters
+        value={gender}
+        onChange={setGender}
+        nameSelect={'Gender'}
+        options={selectInputs.genderArray}
+      />
+      <SelectFilters
+        value={type}
+        onChange={setType}
+        nameSelect={'Type'}
+        options={selectInputs.typeArray}
+      />
+
+      <Button
+        sx={{ height: '50px' }}
+        onClick={() => {
+          history.push(START_URL);
+          setStatus(STANDART_SELECT_VALUE);
+          setSpecies(STANDART_SELECT_VALUE);
+          setGender(STANDART_SELECT_VALUE);
+          setType(STANDART_SELECT_VALUE);
+        }}
+      >
+        clear filters
+      </Button>
     </div>
   );
 };

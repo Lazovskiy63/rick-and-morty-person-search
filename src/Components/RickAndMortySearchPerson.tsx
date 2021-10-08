@@ -16,7 +16,7 @@ const RickAndMortySearchPersonApp = () => {
   useEffect(() => {
     document.body.style.position = 'fixed'; //?
     document.body.style.backgroundImage =
-      'url(https://wallpaperaccess.com/full/3581516.jpg)';
+      'url(https://wallpapers-hub.art/wallpaper-images/401131.jpg)';
   }, []);
   return (
     <Router>

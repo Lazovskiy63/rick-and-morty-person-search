@@ -13,6 +13,8 @@ const Footer = ({ currentPage, infoPages, setCurrentPage }: FooterArgs) => {
       id="footer"
       css={css`
         position: absolute;
+        bottom: 25px;
+
         box-shadow: rgb(0 0 0 / 30%) 0px -7px 6px;
         min-width: 350px;
         height: 5vh;
@@ -20,6 +22,7 @@ const Footer = ({ currentPage, infoPages, setCurrentPage }: FooterArgs) => {
         justify-content: center;
         align-items: center;
         width: 100vw;
+        background-color: white;
       `}
     >
       {currentPage} of {infoPages}

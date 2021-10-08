@@ -95,11 +95,12 @@ const ResultByFilter = ({
   return (
     <div
       css={css`
+        padding-top: 65px;
         display: flex;
         flex-wrap: wrap;
         overflow: auto;
         justify-content: space-around;
-        height: 94vh;
+        height: 95vh;
 
         ::-webkit-scrollbar {
           display: none;
