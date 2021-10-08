@@ -2,19 +2,9 @@
 /* @jsx jsx */
 
 import { jsx, css } from '@emotion/react';
-import { useState } from 'react';
-import { PersonOutputType } from '../types/types';
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
-import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import { CardMedia, Typography } from '@mui/material';
+import { CardMedia } from '@mui/material';
 import { CharParams } from './CardPerson';
 interface DialogPersonDescriptionArgs {
   onChange: Function;

@@ -3,7 +3,6 @@ import Header from './Header/Header';
 import Content from './Content/Content';
 import Footer from './Footer/Footer';
 import { useEffect, useState } from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
 import backgroundImage from '../assets/background.jpg';
 
 const RickAndMortySearchPersonApp = () => {
@@ -36,7 +35,6 @@ const RickAndMortySearchPersonApp = () => {
         />
         <Content
           currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
           setInfoPages={setInfoPages}
           query={{
             status: status,

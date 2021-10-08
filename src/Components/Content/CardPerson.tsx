@@ -2,39 +2,22 @@
 /* @jsx jsx */
 
 import { jsx, css } from '@emotion/react';
-import {
-  Card,
-  CardMedia,
-  Typography,
-  Popper,
-  Fade,
-  Paper,
-  Button,
-} from '@mui/material';
+import { Card, CardMedia, Typography } from '@mui/material';
 import { useState } from 'react';
 import { PersonOutputType } from '../types/types';
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
-import PropTypes from 'prop-types';
+
 import DialogPersonDescription from './DialogPersonDescription';
-import { styled } from '@mui/material/styles';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
 
 interface CardPersonArgs {
   person: PersonOutputType;
 }
 
-interface CharParams {
+type CharParamsType = {
   param: string;
   value: string;
-}
+};
 
-export const CharParams = ({ param, value }: CharParams) => {
+export const CharParams = ({ param, value }: CharParamsType) => {
   return (
     <Typography>
       <b>{param}:</b> {value}
@@ -43,11 +26,6 @@ export const CharParams = ({ param, value }: CharParams) => {
 };
 
 const CardPerson = ({ person }: CardPersonArgs) => {
-  const [isVisibleEpisodes, setIsVisibleEpisodes] = useState(false);
-
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [open, setOpen] = useState(false);
-  const [placement, setPlacement] = useState();
   const [isOpenDialogPersonDescription, setIsOpenDialogPersonDescription] =
     useState(false);
 

@@ -5,8 +5,6 @@ import { jsx, css } from '@emotion/react';
 import { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { Button } from '@mui/material';
-import { Box } from '@mui/system';
-import ResultByFilter from '../Content/Content';
 import { useLocation, useHistory } from 'react-router-dom';
 import SelectFilters from './SelectFilters';
 import { GraphQlResultType, STANDART_SELECT_VALUE } from '../types/types';
@@ -77,6 +75,7 @@ const Header = ({
     setSpecies(params.get('species'));
     setGender(params.get('gender'));
     setType(params.get('type'));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     if (!infoPages) {

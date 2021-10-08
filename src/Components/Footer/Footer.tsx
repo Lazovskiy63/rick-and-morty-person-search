@@ -1,7 +1,7 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
 import { jsx, css } from '@emotion/react';
-import { Pagination, Typography, Paper } from '@mui/material';
+import { Pagination } from '@mui/material';
 interface FooterArgs {
   currentPage: any;
   infoPages: any;

@@ -4,12 +4,6 @@
 import { jsx, css } from '@emotion/react';
 import { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { Container, Typography, Paper } from '@mui/material';
-import { Box } from '@mui/system';
-import Pagination from '@mui/material/Pagination';
 import { PersonOutputType, STANDART_SELECT_VALUE } from '../types/types';
 import CardPerson from './CardPerson';
 type QueryType = {
@@ -20,14 +14,12 @@ type QueryType = {
 };
 interface ResultByFilterArgs {
   query: QueryType;
-  setCurrentPage: Function;
   currentPage: any;
   setInfoPages: Function;
 }
 const ResultByFilter = ({
   setInfoPages,
   currentPage,
-  setCurrentPage,
   query,
 }: ResultByFilterArgs) => {
   const [resultsByFilter, setResultsByFilter] = useState([]);
