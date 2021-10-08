@@ -41,6 +41,7 @@ const DialogPersonDescription = ({
         css={css`
           text-align: center;
           margin-top: 5px;
+          font-style: normal;
         `}
       >
         {person.name}
@@ -81,7 +82,6 @@ const DialogPersonDescription = ({
           css={css`
             padding: 4px;
             height: 60vh;
-            // height: 100px;
             overflow: auto;
             grid-area: episodes;
           `}

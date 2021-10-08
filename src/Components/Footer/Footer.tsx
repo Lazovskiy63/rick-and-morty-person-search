@@ -12,9 +12,9 @@ const Footer = ({ currentPage, infoPages, setCurrentPage }: FooterArgs) => {
     <div
       id="footer"
       css={css`
-        position: absolute;
-        bottom: 25px;
-
+        position: fixed;
+        bottom: 0;
+        left: 0;
         box-shadow: rgb(0 0 0 / 30%) 0px -7px 6px;
         min-width: 350px;
         height: 5vh;

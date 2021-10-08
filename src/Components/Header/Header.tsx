@@ -119,56 +119,71 @@ const Header = ({
   return (
     <div
       css={css`
-        margin: 7px 20vw 8px 20vw;
-        position: absolute;
-
-        justify-content: space-around;
-        box-shadow: rgb(0 0 0 / 49%) 1px 5px 12px;
-        background-color: white;
-        width: 55vw;
-        height: 6vh;
-        border-radius: 4px;
+        position: fixed;
+        top: 25px;
+        left: 0;
+        width: 100vw;
+        height: 7vh;
         display: flex;
-        margin-top: 10px;
+        justify-content: center;
+        align-items: end;
+        min-height: 55px;
       `}
     >
-      <SelectFilters
-        value={status}
-        onChange={setStatus}
-        nameSelect={'Status'}
-        options={selectInputs.statusArray}
-      />
-      <SelectFilters
-        value={species}
-        onChange={setSpecies}
-        nameSelect={'Species'}
-        options={selectInputs.speciesArray}
-      />
-      <SelectFilters
-        value={gender}
-        onChange={setGender}
-        nameSelect={'Gender'}
-        options={selectInputs.genderArray}
-      />
-      <SelectFilters
-        value={type}
-        onChange={setType}
-        nameSelect={'Type'}
-        options={selectInputs.typeArray}
-      />
+      <div
+        css={css`
+          justify-content: space-around;
+          box-shadow: rgb(0 0 0 / 49%) 1px 5px 12px;
+          background-color: white;
+          // width: 55vw;
+          width: fit-content;
+          padding: 5px;
+          height: 5vh;
+          border-radius: 4px;
+          display: flex;
+          margin-top: 10px;
 
-      <Button
-        sx={{ height: '50px' }}
-        onClick={() => {
-          history.push(START_URL);
-          setStatus(STANDART_SELECT_VALUE);
-          setSpecies(STANDART_SELECT_VALUE);
-          setGender(STANDART_SELECT_VALUE);
-          setType(STANDART_SELECT_VALUE);
-        }}
+          min-height: 55px;
+        `}
       >
-        clear filters
-      </Button>
+        <SelectFilters
+          value={status}
+          onChange={setStatus}
+          nameSelect={'Status'}
+          options={selectInputs.statusArray}
+        />
+        <SelectFilters
+          value={species}
+          onChange={setSpecies}
+          nameSelect={'Species'}
+          options={selectInputs.speciesArray}
+        />
+        <SelectFilters
+          value={gender}
+          onChange={setGender}
+          nameSelect={'Gender'}
+          options={selectInputs.genderArray}
+        />
+        <SelectFilters
+          value={type}
+          onChange={setType}
+          nameSelect={'Type'}
+          options={selectInputs.typeArray}
+        />
+
+        <Button
+          sx={{ height: '50px' }}
+          onClick={() => {
+            history.push(START_URL);
+            setStatus(STANDART_SELECT_VALUE);
+            setSpecies(STANDART_SELECT_VALUE);
+            setGender(STANDART_SELECT_VALUE);
+            setType(STANDART_SELECT_VALUE);
+          }}
+        >
+          clear filters
+        </Button>
+      </div>
     </div>
   );
 };

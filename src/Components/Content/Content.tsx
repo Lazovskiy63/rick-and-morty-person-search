@@ -95,7 +95,6 @@ const ResultByFilter = ({
   return (
     <div
       css={css`
-        padding-top: 65px;
         display: flex;
         flex-wrap: wrap;
         overflow: auto;
@@ -107,6 +106,12 @@ const ResultByFilter = ({
         }
       `}
     >
+      <div
+        css={css`
+          height: 104px;
+          width: 100vw;
+        `}
+      ></div>
       {resultsByFilter.map((person: PersonOutputType) => {
         return <CardPerson key={person.id} person={person} />;
       })}

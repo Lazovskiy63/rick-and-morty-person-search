@@ -114,6 +114,10 @@ const CardPerson = ({ person }: CardPersonArgs) => {
             -khtml-user-select: none;
             -webkit-user-select: none;
             -o-user-select: none;
+            &:hover {
+              background-color: #aeaeae;
+              cursor: cell;
+            }
           `}
         >
           ...

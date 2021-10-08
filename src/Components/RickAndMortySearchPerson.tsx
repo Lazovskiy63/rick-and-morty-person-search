@@ -4,6 +4,7 @@ import Content from './Content/Content';
 import Footer from './Footer/Footer';
 import { useEffect, useState } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
+import backgroundImage from '../assets/background.jpg';
 
 const RickAndMortySearchPersonApp = () => {
   const [status, setStatus] = useState('');
@@ -15,8 +16,7 @@ const RickAndMortySearchPersonApp = () => {
   const [infoPages, setInfoPages] = useState(1);
   useEffect(() => {
     document.body.style.position = 'fixed'; //?
-    document.body.style.backgroundImage =
-      'url(https://wallpapers-hub.art/wallpaper-images/401131.jpg)';
+    document.body.style.backgroundImage = `url(${backgroundImage})`;
   }, []);
   return (
     <Router>
